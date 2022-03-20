@@ -11,7 +11,13 @@ install() {
   tar -xf nano*.gz
   rm -rf nano*.gz
   cd nano*
-  ./configure --prefix=$install_dir --enable-utf8
+  ./configure --prefix=$install_dir --disable-debug \
+    --disable-dependency-tracking \
+    --enable-color \
+    --enable-extra \
+    --enable-multibuffer \
+    --enable-nanorc \
+    --enable-utf8
   make && make install || exit 1
 }
 
